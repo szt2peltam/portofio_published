@@ -1,0 +1,528 @@
+@font-face {
+  font-family: JetBrainsRegular;
+  src: url(../fonts/JetBrainsMono-Regular.ttf);
+}
+@font-face {
+  font-family: JetBrainsMedium;
+  src: url(../fonts/JetBrainsMono-Medium.ttf);
+}
+@font-face {
+  font-family: JetBrainsBold;
+  src: url(../fonts/JetBrainsMonoNL-Bold.ttf);
+}
+
+
+  :root{
+    --columns:0;
+    --rows:0;
+    --font-regular:JetBrainsRegular;
+    --font-medium:JetBrainsMedium;
+    --font-bold:JetBrainsBold;
+    --opacity : 0;
+}
+
+
+.green{
+  color: rgb(2, 184, 2);
+}
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+
+body{
+    background-color: #121212;
+    color: #ffffffbf;
+    font-family: var(--font-regular);
+    width: 100vw;
+}
+
+.introduction{
+    display: grid;
+    grid-template-columns: repeat(var(--columns),1fr);
+    grid-template-rows: repeat(var(--rows),1fr);
+    height: 100dvh;
+    color: #121212;
+    background-color: #FFFFFF;
+
+
+}
+
+.tile{
+    /* border: 1px solid grey; */
+}
+
+.introduction-text{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    color: #121212;
+    font-size: 52px;
+    font-family: var(--font-italic);
+}
+
+.not-visible{
+    display: none;
+}
+.me-wrapper{
+  height: 100vh;
+}
+
+.me{
+  display: flex;
+}
+.text{
+  width: 50%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: justify;
+  padding: 100px;
+  font-size: 26px;
+
+}
+
+body{
+  overflow-x: hidden;
+}
+.text > p{
+  /* border: 1px solid rgba(255, 255, 255, 0.711); */
+  padding: 50px;
+  border-radius: 20px;
+  background-color: #201e1e;
+  /* max-height: 300px; */
+  overflow: hidden;
+}
+.picture{
+  width: 100%;
+  position: absolute;
+  z-index: -1;
+  height: 100vh;
+  /* display: flex;
+  justify-content: center;
+  align-items: center; */
+}
+
+img{
+  width: inherit;
+}
+
+
+main{
+  opacity: 0;
+  width: 100vw;
+}
+
+.projects-wrapper{
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  flex-wrap: wrap;
+  padding: 20px;
+  justify-content: space-around;
+  padding-bottom: 100px;
+}
+h1{
+  text-align: center;
+  font-size: 80px;
+}
+.project{
+  display: flex;
+  width: 500px;
+  height: 300px;
+  justify-content: space-between;
+  align-items: center;
+  /* border: 1px solid white; */
+  padding: 30px;
+  border-radius: 50px;
+  background: radial-gradient(
+    500px circle at var(--blob1x) var(--blob1y), 
+    rgba(209, 37, 37, 0.3),
+    transparent 30%
+  ),radial-gradient(
+    500px circle at var(--blob2x) var(--blob2y), 
+    rgba(209, 37, 37, 0.3),
+    transparent 30%
+  ),
+  radial-gradient(
+    400px circle at var(--blob3x) var(--blob3y), 
+    rgba(209, 37, 37, 0.3),
+    transparent 30%
+  ),
+  radial-gradient(
+    600px circle at var(--blob4x) var(--blob4y), 
+    rgba(209, 37, 37, 0.3),
+    transparent 30%
+  );
+  cursor:pointer;
+  border: 1px solid rgb(44, 43, 43);
+}
+
+.description{
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  gap: 10px;
+  
+}
+.project-text{
+  
+}
+
+.red{
+  color: rgb(216, 5, 5);
+}
+
+.tittle{
+  font-family: var(--font-bold);
+  font-size: 48px;
+
+}
+
+
+.project:has(:hover) .tittle{
+}
+
+
+.me-wrapper::after{
+  background: radial-gradient(
+    800px circle at var(--mouse-x) var(--mouse-y), 
+    rgba(255, 0, 0, 0.06),
+    transparent 40%
+  );
+  z-index: -1;
+}
+
+.me-wrapper::before{
+  background: radial-gradient(
+    600px circle at var(--mouse-x) var(--mouse-y), 
+    rgba(255, 255, 255, 0.1),
+    transparent 70%
+  );
+  z-index: -1;
+}
+
+.text > p::before{
+  background: radial-gradient(
+    600px circle at var(--mouse-x) var(--mouse-y), 
+    rgba(255, 255, 255, 0.07),
+    transparent 70%
+  );
+  z-index: 3;
+  border-radius: inherit;
+  content: "";
+  height: 100%;
+  left: 0px;
+  opacity: var(--text-opacity);
+  position: absolute;
+  top: 0px;
+  transition: opacity 150ms;
+  width: 100%;
+
+}
+
+.text>p{
+  position: relative;
+}
+
+
+.me-wrapper:hover::before {
+  opacity: var(--opacity);
+}
+
+.me-wrapper::before,
+.me-wrapper::after {
+  border-radius: inherit;
+  content: "";
+  height: 100%;
+  left: 0px;
+
+  opacity: var(--opacity);
+  position: absolute;
+  top: 0px;
+  transition: opacity 150ms;
+  width: 100%;
+}
+
+.blob-wrapper{
+  height: 0;
+}
+
+.contact-wrapper{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  background-color: #fff;
+  position: relative;
+  color:#121212;
+  gap: 50px;
+  padding-top: 100px;
+  padding-bottom: 100px;
+}
+
+.contact{
+  z-index: 3;
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
+.contact-h1{
+  background-color: #fff;
+  color: #121212;
+}
+
+.contact-picture{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.contact-picture > img{
+  width: 500px;
+  display: block;
+
+}
+.contact-form{
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+  width: 100%;
+}
+
+.tittle-text{
+  font-size: 58px;
+  position: relative;
+}
+
+.contact-info{
+  display: flex;
+  gap: 20px;
+}
+
+.other-contacts{
+  display: flex;
+  gap: 10px;
+}
+
+
+.logo > svg{
+  width: 50px;
+  cursor: pointer;
+}
+.magic-text{
+  position: relative;
+  background: linear-gradient(
+    to right,
+    rgb(123, 31, 162),
+    rgb(103, 58, 183),
+    rgb(244, 143, 177),
+    rgb(123, 31, 162)
+  );
+  background-size: 200%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  white-space: nowrap;
+  animation: bg-pos 5s  linear infinite;
+} 
+
+
+.magic-star{
+  --star-left:100%;
+  --star-top:30%;
+  display: inline-block;
+  position: absolute;
+  animation: scale 700ms ease forwards;
+
+  left: var(--star-left);
+  top: var(--star-top);
+
+}
+
+.magic-star > svg{
+  height: 20px;
+  fill:rgb(123, 31, 162);
+  animation: rotate 1s cubic-bezier(.18,.81,.92,.65) infinite;
+}
+
+@keyframes scale {
+  from, to {
+    transform: scale(0);
+  }
+  
+  50% {
+    transform: scale(1);
+  }
+}
+
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  
+  to {
+    transform: rotate(180deg);
+  }
+}
+@keyframes bg-pos {
+  from{
+    background-position: 0%;
+  }
+  to{
+    background-position: 200%;
+  }
+}
+
+.email{
+  border: 1px solid #121212;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border-radius: 10px;
+  position: relative;
+  overflow: hidden;
+  min-height: 43px;
+  max-height: 43px;
+  width: 250px;
+}
+
+.email-letter{
+  position: relative;
+  font-family: var(--font-bold);
+}
+
+
+.wave{
+  position: absolute;
+  height: 300px;
+  width: 100vw;
+  bottom: 0px;
+  background: url(../pictures/arc_1.svg);
+  transition: background-position 1ms linear;
+  }
+
+
+  @media screen and (max-width: 1485px) {
+    
+    .inside-text{
+      font-size: 20px;
+    }
+  }
+  @media screen and (max-width: 1192px) {
+    
+    .text{
+      padding: 10px;
+    }
+
+    .text > p{
+      padding: 20px;
+    }
+  }
+  @media screen and (max-width: 939px) {
+    
+    /* .inside-text{
+      text-align: center;
+      font-size: 14px;
+      
+    } */
+
+    .text > p{
+      padding: 20px;
+    }
+  }
+  @media screen and (max-width: 823px) {
+    
+    .text{
+      padding: 0px;
+      width: 100%;
+      
+      height: 50vh;
+    }
+    .me{
+      flex-direction: column;
+      /* justify-content: center; */
+      align-items: center;
+      height: 1000px;
+    }
+    .text > p{
+      padding: 20px;
+    }
+  }
+  @media screen and (max-width: 401px) {
+    
+
+    .me{
+      flex-direction: column;
+    }
+    .text > p{
+      padding: 20px;
+      font-size: 16px;
+    }
+  }
+  @media screen and (max-width: 1346px) {
+    
+    .contact{
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 30px;
+    }
+    .contact-form{
+      width: 950px;
+    }
+  }
+  @media screen and (max-width: 1024px) {
+    .contact-form{
+      width: 500px;
+    }
+    .tittle-text{
+      font-size: 40px;
+    }
+  }
+  @media screen and (max-width: 536px) {
+    .project{
+      width: 400px;
+      flex-direction: column;
+    }
+  }
+
+
+  @media screen and (max-width: 781px) {
+    .contact-wrapper{
+      padding-top: 30px;
+    }
+  }
+  @media screen and (max-width: 1283px) {
+    .introduction-text > div{
+      font-size: 32px;
+    }
+  }
+
+  @media screen and (max-width: 583px) {
+    .contact-picture > img{
+      width: 300px;
+    }
+    .contact-form{
+      width: 300px;
+    }
+    .tittle-text{
+      font-size: 30px;
+    }
+
+    .email{
+    }
+
+    .contact-info{
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+
