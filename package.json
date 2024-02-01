@@ -6,7 +6,7 @@
   "author": "alphasec",
   "license": "MIT",
   "dependencies": {
-    "three": "^0.159.0"
+    "three": "^0.161.0"
   },
   "scripts": {
     "start": "node index.html"
